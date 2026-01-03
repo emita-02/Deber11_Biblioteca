@@ -1,0 +1,235 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Biblioteca",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/biblioteca/libros": {
+      "get": {
+        "summary": "Mostrar Libros",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "isbn": "978-030747472_0",
+                    "titulo": "Cien años de soledad",
+                    "autor": "Gabriel García",
+                    "anioPublicacion": 1967,
+                    "disponible": false
+                  },
+                  {
+                    "id": 2,
+                    "isbn": "978-8471661294",
+                    "titulo": "El Principito",
+                    "autor": "Antoine de Saint-Exupéry",
+                    "anioPublicacion": 1943,
+                    "disponible": true
+                  },
+                  {
+                    "id": 3,
+                    "isbn": "978-84-17430-628",
+                    "titulo": "Romeo y Julieta",
+                    "autor": "William Shakespeare",
+                    "anioPublicacion": 1597,
+                    "disponible": true
+                  },
+                  {
+                    "id": 4,
+                    "isbn": "978-6070732720",
+                    "titulo": "Orgullo y Prejuicio",
+                    "autor": "Jane Austen",
+                    "anioPublicacion": 1813,
+                    "disponible": true
+                  },
+                  {
+                    "id": 5,
+                    "isbn": "978-8408216636",
+                    "titulo": "Mujercitas",
+                    "autor": "Louisa May Alcott",
+                    "anioPublicacion": 1868,
+                    "disponible": false
+                  }
+                ]
+              }
+            },
+            "headers": {
+
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/biblioteca/libroEspecifico/2": {
+      "get": {
+        "summary": "Mostrar Libro ID",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+
+                  }
+                },
+                "example": ""
+              }
+            },
+            "headers": {
+
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/biblioteca/libros/filtro": {
+      "get": {
+        "summary": "Mostrar Libro por Filtro",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "autor",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "Jane Austen",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "anio",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "1813",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+
+                  }
+                },
+                "example": [
+                  {
+                    "id": 4,
+                    "isbn": "978-6070732720",
+                    "titulo": "Orgullo y Prejuicio",
+                    "autor": "Jane Austen",
+                    "anioPublicacion": 1813,
+                    "disponible": true
+                  }
+                ]
+              }
+            },
+            "headers": {
+
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/biblioteca/libros/nuevoRegistro": {
+      "post": {
+        "summary": "Registrar nuevo Libro",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                }
+              },
+              "example": {
+                "id": 6,
+                "isbn": "978-8415594017",
+                "titulo": "Bajo la misma estrella.",
+                "autor": "John Green",
+                "anioPublicacion": 2012,
+                "disponible": true
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+
+                  }
+                },
+                "example": {
+                  "id": 6,
+                  "isbn": "978-8415594017",
+                  "titulo": "Bajo la misma estrella.",
+                  "autor": "John Green",
+                  "anioPublicacion": 2012,
+                  "disponible": true
+                }
+              }
+            },
+            "headers": {
+
+            }
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+
+    },
+    "securitySchemes": {
+
+    }
+  },
+  "servers": []
+}
