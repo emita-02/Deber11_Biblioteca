@@ -30,5 +30,16 @@ public class BibliotecaController {
         return listaLibros;
     }
 
+    //2. Devolver un libro específico usando @PathVariable
+    @GetMapping("/libroEspecifico/{id}")
+    public ResponseEntity<Libro> devolverLibroEspecifico(@PathVariable Long id){
+        for (Libro l : listaLibros){
+            if (l.getId().equals(id)){
+                return ResponseEntity.status(HttpStatus.OK).body(l);
+            }
+        }
 
+        //Si no hay resultado devolver ResponseEntity con 404
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
 }
