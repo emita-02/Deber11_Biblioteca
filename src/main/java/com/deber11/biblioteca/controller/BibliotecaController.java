@@ -23,6 +23,12 @@ public class BibliotecaController {
         listaLibros.add(new Libro(5L, "978-8408216636", "Mujercitas", "Louisa May Alcott", 1868, false));
     }
 
+    //1. Devolver todos los libros con GET
+    @GetMapping("/libros")
+    @ResponseBody
+    public List<Libro> devolverLibros(){
+        return listaLibros;
+    }
 
 
 }
