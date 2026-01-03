@@ -42,4 +42,26 @@ public class BibliotecaController {
         //Si no hay resultado devolver ResponseEntity con 404
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
+
+    //3. Filtrar libros por autor y opcionalmente por año con @RequestParam
+    @GetMapping("/libros/filtro")
+    public ResponseEntity<List<Libro>> devolverLibroFiltrado(@RequestParam String autor,
+                                                             @RequestParam(required = false) Integer anio) {
+        List<Libro> resultado = new ArrayList<>();
+
+        for (Libro l : listaLibros) {
+            if (l.getAutor().equalsIgnoreCase(autor)) {
+                //Si no se envia el parametro anio se filtra por autor
+                if (anio == null) {
+                    resultado.add(l);
+                } else if (l.getAnioPublicacion() == anio) {
+                    resultado.add(l);
+                }
+
+            }
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(resultado);
+    }
+
+
 }
