@@ -63,5 +63,19 @@ public class BibliotecaController {
         return ResponseEntity.status(HttpStatus.OK).body(resultado);
     }
 
+    //4. Registrar un nuevo libro con @RequestBody
+    @PostMapping("/libros/nuevoRegistro")
+    public ResponseEntity<Libro> registrarNuevoLibro(@RequestBody Libro lib){
+        listaLibros.add(lib);
+        System.out.println("✅Nuevo libro registrado.");
+        System.out.println("ISBN: "+lib.getIsbn());
+        System.out.println("Título: "+lib.getTitulo());
+        System.out.println("Autor: "+lib.getAutor());
+        System.out.println("Año de Publicación: "+lib.getAnioPublicacion());
+        System.out.println("Disponible: "+lib.isDisponible());
+
+        //Devuelve codigo 201 y libro en el cuerpo
+        return ResponseEntity.status(HttpStatus.CREATED).body(lib);
+    }
 
 }
